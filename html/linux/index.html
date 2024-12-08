@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html class="zyyo.net">
+
+<head class="zyyo.net">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Linux
+    </title>
+    <link rel="icon" href="../../static/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./root.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="zyyo-filter"></div>
+    <div class="navigation_bar">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" target="_blank">首页</a></li>
+<!--                <li><a href="#" target="_blank">黑白键上的乐章</a></li>-->
+<!--                <li><a href="#" target="_blank">足球场的热血篇章</a></li>-->
+                <li><a href="../university/index.html" target="_blank">青春印记</a></li>
+                <li><a href="#" target="_blank">Linux</a></li>
+                <li><a href="#" target="_blank">C++</a></li>
+                <li><a href="../makefile/index.html" target="_blank">Makefile</a></li>
+
+            </ul>
+        </nav>
+    </div>
+
+    <br>
+    <br>
+    <div class="donghua">
+        <div class="container">
+            <div class="box">
+                <div class="cube"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="linux_mainbody">
+<!--        <div class="linux_title">时间指令</div>-->
+        <h2 class="linux_title">用户登录、注销等</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、shutdown -h now 立即关机<br>
+            </p>
+
+            <p>
+                <br>2、shutdown -h 1 一分钟后关机<br>
+            </p>
+
+            <p>
+                <br>3、shutdown -r now 立即重启<br>
+            </p>
+
+            <p>
+                <br>4、halt 关机<br>
+            </p>
+
+            <p>
+                <br>5、reboot 重启<br>
+            </p>
+
+            <p>
+                <br>6、sync 把内存的数据同步到磁盘<br>
+            </p>
+
+            <p>
+                <br>7、su - 用户名 切换用户<br>
+            </p>
+
+            <p>
+                <br>8、logout 注销当前用户并退回<br>
+            </p>
+
+            <p>
+                <br>9、useradd 用户名 创建一个用户并生成在 home 根目录<br>
+                useradd -d 指定目录 用户名 创建在指定目录下的新用户<br>
+            </p>
+
+            <p>
+                <br>10、passwd 用户名 给新用户设置密码(输入两次密码)<br>
+            </p>
+
+            <p>
+                <br>11、pwd 显示当前用户所在目录<br>
+            </p>
+
+            <p>
+                <br>12、userdel 用户名 删除用户(保留用户家目录)<br>
+                userdel -r 用户名 删除用户家目录并删除用户<br>
+            </p>
+
+            <p>
+                <br>13、id 用户名 查看用户信息<br>
+            </p>
+
+            <p>
+                <br>14、who am i /whoami 查看当前用户信息<br>
+            </p>
+
+            <p>
+                <br>15、groupadd 组名 创建一个组<br>
+                groupdel 组名 删除一个组<br>
+            </p>
+
+            <p>
+                <br>16、useradd -g 组名 用户名 将用户添加到组<br>
+                使用时可以不创建组，直接调用此命令，会自动创建组<br>
+            </p>
+
+            <p>
+                <br>17、usermod -g 组名 用户名 将用户更改到新组下<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">时间相关</h2>
+        <div class="linux_text">
+            <p>
+                1、	date	&nbsp  显示当前时间<br>
+                date "+%Y-%m-%d %H:%M:%S"	显示年月日时分秒，字符串的+为格式，其余，如 - ： 为固定显示，%及其后为占位符 <br>
+                &nbsp eg. <br>
+                date -s "2020-11-03 20:02:10"-----设置当前时间 <br>
+                <br>
+                2、hwclock -s &nbsp 恢复原来时间 <br>
+                <br>
+                3 、	cal &nbsp &nbsp  显示当前月日历 <br>
+                cal （年份）	&nbsp  显示该年日历
+            </p>
+        </div>
+        <h2 class="linux_title">搜索查找</h2>
+        <div class="linux_text">
+            <p>
+                1、find [搜索范围] [选项]	&nbsp &nbsp 查找 <br>
+                &nbsp eg. <br>
+                find / -name *.txt--------在根目录下查找所有txt文件 <br>
+                find /home/ -user xxx---在/home/下查找用户名为cr7的所有文件 <br>
+                find /opt/ -size +200M--在/opt/下查找所有符合指定大小的(单位k M G)文件(+大于 -小于  空格等于) <br>
+                <br>
+                2、locate [搜索文件、目录] &nbsp &nbsp  查找该文件、目录的地址(使用前需要先执行updatedb) <br>
+                <br>
+                3、which [指令] &nbsp &nbsp  查找该指令在哪个目录下 <br>
+                <br>
+                4、grep[选项] 查找内容 源文件 <br>
+                &nbsp eg. <br>
+                grep -n "yes" /home/hello.txt-----------显示/home/hello.txt下有 ”yes“ 的行内容 <br>
+                cat /home/hello.txt | grep -n "yes"	-----效果同上
+            </p>
+        </div>
+        <h2 class="linux_title">文档目录</h2>
+        <div class="linux_text">
+            <p>
+                1、clear或Ctrl+L	 &nbsp &nbsp 清屏<br><br>
+                2、init + 级别(0-6)	 &nbsp &nbsp 切换运行级别<br><br>
+                3、systemctl set-default	 &nbsp &nbsp 设置默认运行级别<br>
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                +  multi-user.target		三级：多用户有网络服务
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                +  graphical.target		五级：图形界面<br><br>
+                4、systemctl get-default	 &nbsp &nbsp 获取当前运行级别<br><br>
+                5、man + 指令	 &nbsp &nbsp 获取当前输入指令的帮助文档<br><br>
+                6、help  +  指令		 &nbsp &nbsp 功能描述<br><br>
+                7、pwd	 &nbsp &nbsp 显示当前文件绝对路径<br><br>
+                8、ls   (-a/-l/-al) 	 &nbsp &nbsp 显示当前文件下所有文件<br><br>
+                9、cd ~ 	 &nbsp &nbsp 回到家目录<br>
+                cd ..	 &nbsp &nbsp 返回上一级目录<br><br>
+                cd /(目录名)	 &nbsp &nbsp 切换到此目录下<br><br>
+                10、mkdir	/(目录名)	 &nbsp &nbsp 创建一级目录<br><br>
+                mkdir -p /(目录名)/(目录名)	 &nbsp &nbsp 创建多级目录<br><br>
+                11、redir	/(目录名)	 &nbsp &nbsp 删除空目录<br><br>
+                12、touch (文件名) &nbsp &nbsp 创建一个空文件，如path.txt<br><br>
+                13、cp (文件名) (绝对路径)	 &nbsp &nbsp 将(单个)文件复制到该绝对路径下<br>
+                cp -r (文件名) (绝对路径)		 &nbsp &nbsp 将该文件夹下所有文件和此目录递归复制到该绝对路径下<br>
+                \cp -r (文件名) (绝对路径)	 &nbsp &nbsp 强制覆盖同名文件复制到该绝对路径<br><br>
+                14、rm -r (文件名)	 &nbsp &nbsp 递归删除目录和目录下文件<br>
+                rm -f (文件名)	 &nbsp &nbsp 删除不提示<br>
+                rm -rf (文件名)	 &nbsp &nbsp 递归删除目录和目录下文件且不提示<br><br>
+                15、mv  (旧文件名) (新文件名)	 &nbsp &nbsp 重命名<br>
+                mv (目录或文件) (路径)	 &nbsp &nbsp 剪切到该路径下<br>
+                mv (文件) (路径/文件名)	 &nbsp &nbsp 剪切到该路径下并重命名<br><br>
+                16、cat (文件名)		 &nbsp &nbsp 查看文件内容，不可修改<br><br>
+                cat -n (文件名)		 &nbsp &nbsp 显示行号<br>
+                cat -n (文件名) | more	 &nbsp &nbsp 进行交互,<br><br>
+                17、 | more	或	more (文件名)	 &nbsp &nbsp <br>
+                enter显示下一行，space显示下一页，q立即退出<br>
+                =输出当前行行号，	:f显示当前文件名和行号	<br><br>
+                18、less （文件名）			进行交互，动态加载
+                space 或  PgDown 向下一页，PgUp 向上一页 <br>
+                /字符串 或 ？字符串	查找该字符串	n向下查找N向上查找;
+                &nbsp &nbsp &nbsp  q	离开<br><br>
+                19、echo	(内容) &nbsp &nbsp 将该内容输出<br>
+                echo “字符串”		输出 字符串<br><br>
+                20、head (文件名) &nbsp &nbsp 查看该文件的前十行，默认为十行<br>
+                head -n number (文件名)	查看该文件的前number行<br><br>
+                21、tail (文件名) &nbsp &nbsp 查看该文件的末尾十行，默认为十行<br>
+                tail -n number	(文件名)	查看该文件的后number行<br>
+                tail -f (文件名)			实时追踪文档的更新<br><br>
+                22、> &nbsp &nbsp 输出重定向<br>
+                ls -l > (文件名)			将列表内容覆盖写入文件中<br>
+                cat (文件名1) > (文件名2)	将文件1的内容覆盖到文件2中<br><br>
+                23、	>>					追加<br>
+                ls -al >> (文件名)		将列表内容追加到文件内<br>
+                echo "字符串" >> (文件名)	将字符串追加到文件内<br><br>
+                24、	ln -s (原来文件或目录) (软连接名)	创建一个软连接连接到该文件或目录下，类似快捷方式，删除时用rm<br><br>
+                25、	history 				查看所有历史执行命令<br>
+                history number			查看最近number条指令<br>
+                ！8					执行历史编号为8的指令	<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">压缩解压</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、gzip （文件名）			(只能用于)压缩文件  .gz<br>
+                gunzip (文件名)			(只能用于)解压文件	<br>
+
+                <br>2、zip [选项]XXX.zip 			压缩文件和目录的命令<br>
+                -r	压缩文件夹时递归压缩	<br>
+                &nbsp eg. <br>
+                zip -r new.zip /root/newdir/	将/root/newdir/下所有文							件和newdir共同压缩<br>
+                unzip [选项]XXXzip		解压缩文件和目录的命令<br>
+                -d    指定地址<br>
+                &nbsp eg. <br>
+                unzip -d /opt/tmp /home/myhome.zip	将myhome.zip									解压到/opt/tmp下<br>
+
+                <br>3、tar [选项]  xxx.tar.gz	<br>
+                -c	产生.tar打包文件	-v	显示详细信息<br>
+                -f 	指定压缩后的文件名	-z 	打包同时压缩<br>
+                -x	解包.tar文件<br>
+                <br>
+                &nbsp eg. <br>
+                a.tar -zcvf pc.tar.gz /home/pig.txt /home/cat.txt<br>
+                （将 /home/pig.txt 和 /home/cat.txt 压缩成 pc.tar.gz）<br>
+                <br>
+                b.tar -zcvf myhome.tar.gz /home/<br>
+                （将/home 的文件夹 压缩成 myhome.tar.gz）<br>
+                <br>
+                c.tar -zxvf pc.tar.gz<br>
+                （ pc.tar.gz 解压到当前目录）<br>
+                <br>
+                d.tar -zxvf /home/myhome.tar.gz -C /opt/tmp2<br>
+                （将 myhome.tar.gz解压到 /opt/tmp2目录下）<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">vim相关操作</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、拷贝x行(默认为1)  (x)yy ，粘贴  p<br>
+                <br>2、删除x行(默认为1)	(x)dd<br>
+                <br>3、设置文件行数	set nu   /	取消文件行数 	set nonu<br>
+                <br>4、查找关键字		/关键字  (回车)<br>
+                <br>5、切换到最末行（G）	最首行（gg）<br>
+                <br>6、撤销	u<br>
+                <br>7、移动光标到x行	x  + (shift+g)<br>
+            </p>
+        </div>
+        <h2 class="linux_title">磁盘分区</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、lsblk (-f)	查看所有设备挂载情况<br>
+
+                <br>2、增加硬盘：<br>
+                a. 对新增硬盘分区，硬盘挂载在/dev/下 <br>
+                &nbsp eg. <br>
+                fdisk /dev/sdb<br><br>
+                b. 输入m	获取帮助文档<br>
+                输入n	添加新的分区<br>
+                输入p/e	主分区/从属分区<br>
+                输入1/n	确定需要1/n个分区<br>
+                输入命令w/q		保存并生效/不保存退出<br><br>
+                c. 格式化磁盘(分配UUID)，ext4为分区类型，对sdb1格式化	<br>
+                &nbsp eg. <br>
+                mkfs -t ext4 /dev/sdb1		<br><br>
+                d. 挂载到目录(可任意指定)/home/sdb1，临时挂载，重启后失效<br>
+                mount [设备名称] [挂载目录]<br>
+                &nbsp eg. <br>
+                mount /dev/sdb1 /home/sdb1<br><br>
+                e. 卸载挂载 umount [设备名称] 或 [挂载目录]<br>
+                &nbsp eg. <br>
+                umount /dev/sdb1 或 umount /home/sdb1<br><br>
+                f. 永久挂载 修改文件/etc/fstab	<br>
+                &nbsp eg. <br>
+                vim /etc/fstab<br>
+                <br>
+                UUID改为/dev/sdb1	<br>
+                &nbsp eg. <br>
+                /dev/sdb1           /home/sdb1              ext4    defaults        0 0<br>
+
+                <br>3、df -h 	查询磁盘使用情况<br>
+
+                <br>4、du [选项] [目录地址]	查询指定目录磁盘占用情况<br>
+                选项：	-h	带计量单位	 	-a 	含文件	<br>
+                --max-depth=n 	查询子目录深度为n	<br>
+                -c 	列出明细的同时，增加汇总值			<br>
+                -s	指定目录占用大小汇总<br>
+                常用： 	du -hac --max-depth=1 /opt/<br>
+
+                <br>5、ls -l /opt/ | grep "^-" | wc -l	<br>
+                统计/opt/目录下文件的个数 	以-开头<br>
+                grep "^-"	： 过滤后保留以-(权限的最左侧,不含权限)开头的文件<br>
+                wc -l		：统计个数并显示,若不加此指令则列出所有-开头的文件<br>
+
+                <br>6、ls -l /opt/ | grep "^d" | wc -l	<br>
+                统计/opt/目录下文件的个数 	以d开头<br>
+
+                <br>7、ls -lR /opt/ | grep "^-" | wc -l	<br>
+                统计/opt 文件夹下文件的个数，包括子文件夹里的<br>
+                文件夹改为"^d"<br>
+                -R	: 表示递归<br>
+
+                <br>8、tree [目录地址]	以树状显示目录<br>
+                需要yum install tree	安装tree<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">定时任务</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、crontab [选项]<br>
+                -e 编辑crontab定时任务		-l 查询(列举)crontab定时任务 <br>
+                -r 删除当前用户所有crontab任务<br>
+                service crond restart 重启任务调度<br>
+
+                <br>2、时间规则 			日期和星期建议不要一起使用<br>
+                * * * * *	分别对应(第几)   分钟 小时 日期(号) 月 星期几<br>
+
+                <br>3、特殊符号<br>
+                * 代表任何时间<br>
+                , 代表不连续时间，如0 6,8,12,16 * * * 表示每天6、8、12、16点0分执行<br>
+                - 表示范围，如0，2-14 * * 4 表示每周四的2-14时0分执行<br>
+                */n 代表每隔多久执行，*/12 * * * * 表示每隔12分钟执行一次<br>
+
+                <br>4、crontab应用实例：每隔1分钟，将当前日期和日历都追加到 /home/crontab.txt 文件中<br>
+                a、建立脚本文件 vim mycrontab.sh<br>
+                b、(可做可不做)建立要写入的文本文档 touch crontab.txt<br>
+                c、向mycrontab.sh中写入执行命令	<br>
+                date >> /home/crontab.txt<br>
+                cal >> /home/crontab.txt<br>
+                d、修改脚本文件的root执行权限	chmod u=rwx mycrontab.sh <br>
+                e、设置crontab定时调度	crontab -e<br>
+                f、编辑crontab，每隔一分钟执行该脚本<br>
+                */1 * * * * /home/mycrontab.sh<br>
+
+                <br>5、at [选项] [时间]		Ctrl+D结束 at 命令的输入，输出两次<br>
+                -m 当指定的任务被完成后，将给用户发送邮件，即使没有标准输出<br>
+                -I (大写i)atq的别名<br>
+                -d atrm的别名<br>
+                -v 显示任务将被执行的时间<br>
+                -V 显示版本信息<br>
+                -q<队列> 使用指定的队列<br>
+                -f<文件> 从指定文件读入任务而不是从标准输入读入<br>
+                    -t<时间参数> 以时间参数的形式提交要运行的任务<br>
+
+                        <br>6、at 指定时间方法<br>
+                        1) 接受在当天的 hh:mm(小时:分钟)式的时间指定。假该时间已过去，那么就放在第二天执行。例如:04:00<br>
+                        2) 使用 midnight(深夜)，noon(中午)，teatime(饮茶时间，一般是下午4点)等比较模糊的词语来指定时间。<br>
+                        3) 采用 12 小时计时制，即在时间后面加上 AM(上午)PM(下午)来说明是上午还是下午。例如:12pm<br>
+                        4) 指定命令执行的具体日期，指定格式为month day(月 日)或mm/dd/yy(月/日/年)或dd.mm.yy(日.月.年)，指定的日期必须跟在指定时间的后面。例如:04:00 2021-03-1<br>
+                        5) 使用相对计时法。指定格式为:now+count time-units ，now 就是当前时间,time-units 是时间单位,这里能够是 minutes(分钟)、hours(小时)、days(天)、weeks(星期)。count 是时间的数量，几天，几小时。例如:now+5 minutes<br>
+                        6) 直接使用 today(今天)、tomorrow(明天)来指定完命令的时间。<br>
+
+                        <br>7、实例<br>
+                        示例1：两天后的下午5点执行 /bin/ls /home<br>
+                        at 5pm + 2 days (Enter)<br>
+                        /bin/ls /home (Ctrl+D * 2)<br>
+                        <br>
+                        示例1：明天 17 点钟，输出时间到 /root/date100.log<br>
+                        at 5pm tomorrow (Enter)<br>
+                        date > /root/date100.log (Ctrl+D * 2)<br>
+                        <br>
+                        示例1：2 分钟后，输出时间到指定文件内比如 /root/date200.log<br>
+                        at now + 2 minutes (Enter)<br>
+                        date > /root/date200.log (Ctrl+D * 2)<br>
+
+                        <br>8、atq 	查看系统中没有执行的工作任务<br>
+                        <br>9、atrm [编号]		删除已经设置的任务<br>
+                        atrm 4 //表示将 job 队列，编号为4的job 删除<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">动态监管</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、动态监管<br>
+                top [选项]<br>
+                选项	：	-d [秒数]	指定top命令每隔多少秒更新，默认3秒<br>
+                -i		使top不显示任何闲置或僵死进程<br>
+                -p		通过指定监控进程ID来只监控某个进程<br>
+
+                <br>2、监视特定用户<br>
+                top	；	u	；	用户名<br>
+                终止指定进程		top  ； 	k	；	ID号		； 	9(强制结束)<br>
+
+                <br>3、监控网络状态<br>
+                netstat [选项]<br>
+                选项：-an 按一定顺序排列输出		-p显示正在调用  &nbsp &nbsp &nbsp
+                一般组合-anp使用<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">服务管理</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、服务管理<br>
+                service [服务名] [start | stop | restart | reload | status] 开始、关闭、重启、查看状态<br>
+                reload: 不间断服务重启，就像一张网页上面的刷新<br>
+                restart: 先stop 再start，就像关闭浏览器再打开<br>
+                使用service指令，关闭network	service network stop<br>
+                重启network	service network restart<br>
+
+                <br>2、查看服务名<br>
+                a. service指令管理的服务在 /etc/init.d 中		ls -l /etc/init.d/	绿色的部分即为service<br>
+                b. 输入setup 可以看到全部，其中有*的是系统启动时就自启动的服务<br>
+
+                <br>3、运行级别<br>
+                multi-user.target：运行级别三<br>
+                graphical.target：运行级别五<br>
+                查看当前运行级别	systemctl get-default<br>
+                设置运行级别	systemctl set-default graphical.target<br>
+                systemctl set-default multi-user.target<br>
+
+                <br>4、chkconfig指令<br>
+                chkconfig 		给服务的各个运行级别设置自启动/关闭<br>
+                chkconfig --list 	列出chkconfig管理的服务<br>
+
+                <br>5、chkconfig --level [运行级别] [服务名] [on/off]<br>
+                将某一服务在某运行级别下开启自启动或关闭<br>
+                把network在3运行级别下关闭自启动	chkconfig --level 3 network off<br>
+                重新设置后需要重启机器	reboot<br>
+
+                <br>6、systemctl管理指令	查看服务名<br>
+                在/usr/lib/systemd/system查看		ls -l /usr/lib/systemd/system<br>
+                systemctl [start | stop | restart | status] 服务名 开始、关闭、重启、查看状态（临时生效）<br>
+
+                <br>7、systemctl 设置服务自启动状态<br>
+                systemctl list-unit-files [| grep xxx]	查看服务开机启动状态<br>
+                systemctl is-enabled 服务名		查询某个服务是否自启动<br>
+                systemctl enable 服务名			设置服务开机自启动(在3、5两个运行级别一起设置)<br>
+                systemctl disable 服务名			关闭服务开机自启动(在3、5两个运行级别一起设置)<br>
+                （永久生效）<br>
+                防火墙服务：firewalld.service<br>
+
+                <br>8、firewall指令（防火墙）<br>
+                查询端口是否开放	firewall-cmd --query-port=端口号/协议(均要写)<br>
+                打开端口	firewall-cmd --permanent --add-port=端口号/协议(均要写)<br>
+                关闭端口	firewall-cmd --permanent --remove-port=端口号/协议(均要写)<br>
+                打开/关闭端口后，重新载入才生效	firewall-cmd --reload<br>
+            </p>
+        </div>
+        <h2 class="linux_title">进程管理</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、ps 查看目前系统中哪些进程正在被执行<br>
+                [选项] -a 显示当前终端所有进程信息 -u 以用户格式显示<br>
+                -x 显示后台进程运行参数 -e 显示所有进程<br>
+                -f 全格式显示<br>
+                ps -aux | grep sshd 查看后台是否有 sshd (远程登录终端)进程<br>
+                ps -aux | grep bash 查看后台是否有 bash (本机终端)进程<br>
+            </p>
+
+            <p>
+                <br>2、进程信息：<br>
+                STAT 进程状态：<br>
+                S 睡眠 s 该进程是会话的先导程序 N 比普通优先级更低的优先级<br>
+                D 短期等待 Z 僵死程序(内存未释放) T 被跟踪或被停止<br>
+                PID 进程号 PPID 父进程的进程号<br>
+            </p>
+
+            <p>
+                <br>3、kill [选项] [进程号] 通过进程号终止进程<br>
+                选项： -9 强制立即终止进程<br>
+            </p>
+
+            <p>
+                <br>4、重启 sshd 服务<br>
+                /bin/systemctl start sshd.service<br>
+            </p>
+
+            <p>
+                <br>5、killall [进程名] 通过进程名终止进程，以及其所有子进程<br>
+                killall gedit 终止多个 gedit(文本编辑器)<br>
+            </p>
+
+            <p>
+                <br>6、kill -9 [终端进程号] 强制关闭本地终端 ( | grep bash)<br>
+            </p>
+
+            <p>
+                <br>7、pstree [选项] 查看进程信息<br>
+                选项： -p 显示进程 PID -u 显示进程所属用户<br>
+            </p>
+        </div>
+        <h2 class="linux_title">文件权限</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、ls -ahl 查看文件所有者<br>
+            </p>
+
+            <p>
+                <br>2、chow 用户名 文件名 修改文件(目录)所有者<br>
+                chow cr7 hello.cpp 将 hello.cpp 所有者改为 cr7<br>
+            </p>
+
+            <p>
+                <br>3、groupadd 组名 创建一个组<br>
+                groupdel 组名 删除一个组<br>
+            </p>
+
+            <p>
+                <br>4、useradd -g 组名 用户名 将用户添加到组<br>
+                使用时可以不创建组，直接调用此命令，会自动创建组<br>
+            </p>
+
+            <p>
+                <br>5、usermod -g 新组名 用户名 将用户更改到新组下，切换组时拥有的权限需要重新登陆才会刷新<br>
+                usermod -d 目录名 用户名 改变该目录登录的初始目录，需要有进入权限<br>
+            </p>
+
+            <p>
+                <br>6、chgrp [组名] [文件/目录] 修改文件/目录所在组<br>
+            </p>
+
+            <p>
+                <br>7、ls -l 显示内容<br>
+                第0位：l 链接(类似于快捷方式) d 目录(类似于文件夹)<br>
+                c 字符设备文件,鼠标、键盘等<br>
+                b 块设备，如硬盘<br>
+                第1-3位：文件所有者拥有的权限<br>
+                第4-6位：所属组拥有权限<br>
+                第7-9位：其他用户拥有权限<br>
+            </p>
+
+            <p>
+                <br>8、rwx详解<br>
+                作用至文件：<br>
+                r：可读 w：可写，但不一定可删除，需要该文件所属目录有写权限<br>
+                x：可执行，可以 cd /.....<br>
+                作用至目录：<br>
+                r：可读（ls，可以列举） w：可写，可以修改，对目录内创建+删除+重命名目录<br>
+                x：可执行，可以进入该目录，cd /.....，如果只有 x 则可以进入但不能查看目录内的文件，也可以进入此目录下的文件或目录<br>
+            </p>
+
+            <p>
+                <br>9、修改权限 chmod u(所有者) g(所有组) o(其他人) a(所有人,u+g+o)<br>
+                chmod u=rwx,g=rx,o=x 文件/目录名<br>
+                chmod o+w 文件/目录名<br>
+                chmod a-x 文件/目录名<br>
+            </p>
+
+            <p>
+                <br>10、通过数字修改权限<br>
+                chmod u=rwx,g=rx,o=x 文件/目录名 等价于 chmod 751 文件/目录名<br>
+            </p>
+
+            <p>
+                <br>11、修改文件所有者<br>
+                chown 新的所有者 文件 修改所有者<br>
+                chown -R 新的所有者:新的所属组 目录 修改目录及其目录下的所有文件的拥有者和所属组<br>
+            </p>
+
+            <p>
+                <br>12、修改文件所属组 chgrp -R 新组名 文件/目录<br>
+            </p>
+
+        </div>
+        <h2 class="linux_title">shell编程</h2>
+        <div class="linux_text">
+            <p>
+                <br>1、.bash文件 以 #!/bin/bash 开头<br>
+            </p>
+
+            <p>
+                <br>2、执行方式：<br>
+                A. ./xxx.sh<br>
+                B. sh xxx.sh<br>
+            </p>
+
+            <p>
+                <br>3、变量：<br>
+                定义： <变量名>=<值><br>
+                撤销(销毁)： unset <变量名><br>
+                    声明静态变量：readonly <变量名> 不可 unset<br>
+                        多行注释： :<<! !<br>
+                        例：<br>
+                        A=100<br>
+                        echo A=$A<br>
+                        unset A<br>
+                        readonly B=20<br>
+                        echo $B<br>
+            </p>
+
+            <p>
+                <br>4、设置环境变量：<br>
+                在 /etc/profile 文件中添加<br>
+                A. export <变量名>=值<br>
+                B. source /etc/profile 刷新配置文件<br>
+                C. 运行<br>
+            </p>
+
+            <p>
+                <br>5、位置参数变量：<br>
+                A. $n : n为number 表示接收参数，10以上需要使用 ${10}<br>
+                B. $* : 表示命令行所有参数，看作一个整体<br>
+                C. $@ : 也表示所有参数，但分开<br>
+                D. $# : 命令行中所有参数个数<br>
+                eg.<br>
+                #!/bin/bash<br>
+                echo "A=$0 B=$1 C=$2"<br>
+                echo "所有参数$*"<br>
+                echo "$@"<br>
+                echo "参数个数$#"<br>
+            </p>
+
+            <p>
+                <br>6、预定义变量<br>
+                $$ : 获取当前进程号PID<br>
+                $! : 后台运行的最后一个进程的PID<br>
+                $? : 最后一次执行的命令返回状态；若为0，则正确执行，若非0，反之<br>
+            </p>
+
+            <p>
+                <br>7、在脚本中运行另外一个脚本： 需要加上&<br>
+                /path/to/script.sh &<br>
+            </p>
+
+            <p>
+                <br>8、运算符：<br>
+                A. $(()) $[] expr m + n (必须带空格) 使用expr输出时，需要用``引用<br>
+                B. expr 中 \*(乘) /(除) %(取余)<br>
+                &nbsp &nbsp eg.<br>
+                #!/bin/bash<br>
+                #案例1：计算（2+3）X4的值<br>
+                RES1=$(((2+3)*4))<br>
+                echo "res1=$RES1"<br>
+                RES2=$[(2+3)*4]<br>
+                echo "res2=$RES2"<br>
+                TEMP=`expr 2 + 3`<br>
+                RES4=`expr $TEMP \* 4`<br>
+                echo "temp=$TEMP"<br>
+                echo "res4=$RES4"<br>
+                <br>
+                #案例2：请求出命令行的两个参数[整数]的和 20 50<br>
+                SUM=$[$1+$2]<br>
+                echo "sum=$SUM"<br>
+            </p>
+
+            <p>
+                <br>9、条件判断  [ ]内必须有空格；[ ]内有内容则为true(0)，无内容则为false(非零)<br>
+                if [  ]<br>
+                then <br>
+                #do something<br>
+                fi<br>
+            </p>
+
+            <p>
+                <br>10、字符串比较：=<br>
+                两个整数的比较<br>
+                -lt 小于 -le 小于等于 -eq 等于 -gt 大于 -ge 大于等于 -ne 不等于 -r有读的权限 -w 有写的权限 -x有执行的权限<br>
+                -f文件存在并且是一个常规的文件 -e文件存在 -d 文件存在并是一个目录<br>
+                例：<br>
+                if [ -f /etc/xxx.txt ] #是否存在<br>
+                then <br>
+                echo "exist"<br>
+                elif [ xxxx ]<br>
+                then<br>
+                #xxx<br>
+                fi<br>
+                if [ 666 ]<br>
+                then <br>
+                echo "666"<br>
+                fi<br>
+            </p>
+
+            <p>
+                <br>11、case : 具体格式<br>
+                case $<变量名> in<br>
+                "value 1")<br>
+                #coding<br>
+                ;;<br>
+                "value 2")<br>
+                #coding<br>
+                ;;<br>
+                *)<br>
+                #类似default<br>
+                #coding <br>
+                esac<br>
+            </p>
+
+            <p>
+                <br>12、for循环<br>
+                A.<br>
+                for <value> in <v1> <v2><br>
+                do<br>
+                #coding<br>
+                done<br>
+                B.<br>
+                for(( i=1;i<$1;i++ ))<br>
+                do <br>
+                #coding<br>
+                done<br>
+            </p>
+
+            <p>
+                <br>13、while循环<br>
+                while [ 判断式 ] #均有空格<br>
+                do<br>
+                #coding<br>
+                done<br>
+            </p>
+
+            <p>
+                <br>14、read [选项] [参数]<br>
+                选项： -p 指定读取时的提示符 -t 指定等待时间<br>
+                参数： 变量：指定读取的变量名<br>
+                eg.<br>
+                #!/bin/bash<br>
+                read -t 5 -p "请输入" NUM1<br>
+                echo "$NUM1"<br>
+            </p>
+
+            <p>
+                <br>15、自定义函数<br>
+                function <函数名> [(参数)]<br>
+                {<br>
+                #coding<br>
+                }<br>
+            </p>
+
+        </div>
+    </div>
+
+</body>
+<script src="./script.js"></script>
+
+
+</html>

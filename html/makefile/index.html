@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="zyyo.net">
+
+<head class="zyyo.net">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Makefile
+    </title>
+    <link rel="icon" href="../../static/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./root.css">
+
+    <style>
+
+
+        .makefile_mainbody
+        {
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 55%;
+            height: auto;
+            margin: auto auto;
+            margin-bottom: 200px;
+        }
+
+        .makefile_title
+        {
+            /*background-color:#000;*/
+            width: 80%;
+            height: 100px;
+            margin: auto auto;
+            text-align: center;
+            padding: 30px;
+            font-size: 40px;
+            color: #fff;
+            font-family: 楷体;
+        }
+
+        .makefile_text
+        {
+            /*background-color: #000;*/
+            font-size: 20px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="zyyo-filter"></div>
+    <div class="navigation_bar">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" target="_blank">首页</a></li>
+<!--                <li><a href="#" target="_blank">黑白键上的乐章</a></li>-->
+<!--                <li><a href="#" target="_blank">足球场的热血篇章</a></li>-->
+                <li><a href="../university/index.html" target="_blank">青春印记</a></li>
+                <li><a href="../linux/index.html" target="_blank">Linux</a></li>
+                <li><a href="#" target="_blank">C++</a></li>
+                <li><a href="#" target="_blank">Makefile</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <br>
+    <br>
+    <div class="donghua">
+        <div class="container">
+            <div class="box">
+                <div class="cube"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="makefile_mainbody">
+        <h2 class="makefile_title">Makefile文件</h2>
+        <h3>文件存放目录格式</h3>
+        <div class="makefile_text">
+            <p class="DirectoryFormat">
+                <br>project_root/          # 项目根目录<br>
+                ├── src/               # 存放源代码<br>
+                │   ├── main.c<br>
+                │   ├── module1.c<br>
+                │   └── module2.c<br>
+                ├── include/           # 存放头文件<br>
+                │   ├── module1.h<br>
+                │   └── module2.h<br>
+                ├── build/             # 编译输出目录（Makefile运行后生成）<br>
+                │   ├── main.o<br>
+                │   ├── module1.o<br>
+                │   └── module2.o<br>
+                ├── Makefile           # Makefile文件<br>
+                └── test               # 生成的可执行文件<br>
+            </p>
+        </div>
+        <br><br><br>
+        <h3>通用Makefile文件模板</h3>
+        <div class="makefile_text">
+            <p>
+                <br>TARGET = test<br>
+                GNUTOOL = gcc<br>
+                <br># 编译选项，包含 include 目录<br>
+                CFLAGS = -Wall -g -Iinclude<br>
+                <br># 获取目录下的所有.c文件，并包含 main.c<br>
+                SRC = main.c $(wildcard src/*.c)<br>
+                <br># 将所有.c文件编译成指定目录下的.o文件<br>
+                BUILD_DIR = build<br>
+                OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(SRC))<br>
+                <br># $^ 表示所有依赖<br>
+                # $@ 表示目标<br>
+                $(TARGET): $(OBJS)<br>
+                &emsp;&emsp;$(GNUTOOL) $^ -o $@<br>
+                <br># 创建.o文件所在的目录，并编译.o文件<br>
+                $(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)/src<br>
+                &emsp;&emsp;mkdir -p $(dir $@)        # 创建.o文件的输出目录<br>
+                &emsp;&emsp;$(GNUTOOL) -c $< -o $@ $(CFLAGS)<br>
+                <br># 创建 build 目录和子目录<br>
+                $(BUILD_DIR)/src:<br>
+                &emsp;&emsp;mkdir -p $(BUILD_DIR)/src<br>
+                <br>.PHONY: clean<br>
+                clean:<br>
+                &emsp;&emsp;rm -rf $(BUILD_DIR) $(TARGET)<br>
+            </p>
+
+        </div>
+</body>
+<script src="./script.js"></script>
+
+
+</html>
